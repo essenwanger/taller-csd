@@ -1,4 +1,4 @@
-Given(/^abro el juego$/) do
+Given(/^ingreso a la aplicacion$/) do
   visit '/'
 end
 
