@@ -27,7 +27,7 @@ post '/resultado' do
     if ambiente == "produccion"
         destino = Destino.new
         faquiu = Faquiu.new destino
-        session["respuesta"] = faquiu.lanzar
+        session["respuesta"] = faquiu.lanzar 5
     else
         destino = DestinoMock.new true #1
         faquiu = Faquiu.new destino
