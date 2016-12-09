@@ -49,3 +49,7 @@ post '/resultado' do
     end
     erb :resultado
 end
+
+post '/volver' do
+    erb :inicio
+end
