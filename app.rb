@@ -29,9 +29,9 @@ post '/resultado' do
         faquiu = Faquiu.new destino
         session["respuesta"] = faquiu.lanzar
     else
-        destino = DestinoMock.new true
+        destino = DestinoMock.new true #1
         faquiu = Faquiu.new destino
-        session["respuesta"] = faquiu.lanzar resultado
+        session["respuesta"] = faquiu.lanzar resultado.to_i
     end
     erb :resultado
 end
