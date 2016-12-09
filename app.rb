@@ -16,3 +16,8 @@ end
 post '/iniciar' do
     erb :inicio
 end
+
+
+post '/resultado' do
+    erb :resultado
+end
