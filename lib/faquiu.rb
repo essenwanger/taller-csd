@@ -1,17 +1,18 @@
 class Faquiu
-    def initialize destino=Destino.new
+    def initialize destino=Destino.new, viento = nil
         @destino = destino
+        @viento = viento
     end
     def lanzar numeroJugador=0
-        numeroDestino = @destino.aleatorio
-        puts numeroJugador
-        puts numeroDestino
+        if (@viento.nil?) then
+            numeroDestino = @destino.aleatorio
+        else
+            numeroDestino = @destino.aleatorio + @viento.factor
+        end
         if (numeroJugador == numeroDestino) then
             @res = "Bien! El destino se hizo cargo de esa persona... 8-)"
-            puts "igual=" + @res
         else
             @res = "Pucha... Lamentablemente esa persona seguirá viviendo un tiempo más :'("
-            puts "diff=" + @res
         end
         return @res
     end
