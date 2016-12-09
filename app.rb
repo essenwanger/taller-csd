@@ -23,14 +23,20 @@ end
 post '/resultado' do
     ambiente=params["ambiente"]
     resultado=params["resultado"]
-    if ambiente == "produccion"
-        destino = Destino.new
-        faquiu = Faquiu.new destino
-        session["respuesta"] = faquiu.lanzar 5
+    fuerza=params["fuerza"]
+    fuerza=fuerza.to_i
+    if fuerza<=10 and fuerza>0
+        if ambiente == "produccion"
+            destino = Destino.new
+            faquiu = Faquiu.new destino
+            session["respuesta"] = faquiu.lanzar 5
+        else
+            destino = DestinoMock.new true #1
+            faquiu = Faquiu.new destino
+            session["respuesta"] = faquiu.lanzar fuerza.to_i
+        end
     else
-        destino = DestinoMock.new true #1
-        faquiu = Faquiu.new destino
-        session["respuesta"] = faquiu.lanzar resultado.to_i
+        session["respuesta"] = "El valor de la fuerza no es permitida"
     end
     erb :resultado
 end

@@ -20,3 +20,7 @@ When(/^seleccion "([^"]*)" en ambiente "([^"]*)" y retorna "([^"]*)"$/) do |text
   find("#resultado", :visible => false).set resultado
   click_button(texto)
 end
+
+When(/^ingreso fuerza "([^"]*)"$/) do |fuerza|
+  fill_in("fuerza", :with => fuerza)
+end
