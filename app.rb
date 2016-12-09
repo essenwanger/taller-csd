@@ -12,3 +12,7 @@ set :session_secret, 'thisIsAKleerSecret'
 get '/' do
 	erb :index
 end
+
+post '/iniciar' do
+    erb :inicio
+end
