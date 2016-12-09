@@ -9,13 +9,9 @@ class Faquiu
         else
             numeroDestino = @destino.aleatorio + @viento.factor
         end
-        puts numeroJugador
-        puts numeroDestino
         if (numeroJugador == numeroDestino) then
-            puts "win"
             @res = "Bien! El destino se hizo cargo de esa persona... 8-)"
         else
-            puts "loose"
             @res = "Pucha... Lamentablemente esa persona seguirá viviendo un tiempo más :'("
         end
         return @res

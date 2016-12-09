@@ -23,7 +23,6 @@ end
 post '/resultado' do
     ambiente=params["ambiente"]
     resultado=params["resultado"]
-     puts "hola" +resultado
     if ambiente == "produccion"
         destino = Destino.new
         faquiu = Faquiu.new destino
