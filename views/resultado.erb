@@ -6,6 +6,10 @@
 <body>
 	<center><h1>resultado del juego</h1></center>
 	<center><h2><%=session["respuesta"] %></h2></center>
+	<center><h3>Tu jugada:</h3></center>
+	<center><h3>Tu fuerza: <%=session["fuerza"] %></h3></center>
+	<center><h3>El viento: <%=session["valorViento"] %></h3></center>
+	<center><h3>El destino: <%=session["posicionVillano"] %></h3></center>
 	<form action="/volver" method="post" >
 		<center><input type="submit" name="volver" value="volver"/></center>
 	</form>

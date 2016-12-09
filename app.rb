@@ -26,17 +26,22 @@ post '/resultado' do
     fuerza=params["fuerza"]
     ambiente=params["ambiente"]
     resultado=params["resultado"]
-    viento=params["viento"]
+    hviento=params["viento"]
     fuerza=fuerza.to_i
     if fuerza<=10 and fuerza>=0
         if ambiente == "produccion"
             destino = Destino.new #Random
             viento = Viento.new #Random
             faquiu = Faquiu.new destino, viento
-            session["respuesta"] = faquiu.lanzar 5
+            session["respuesta"] = faquiu.lanzar fuerza
+            posicionVillano = faquiu.objetivo
+            valorViento = faquiu.valorViento
+            session["posicionVillano"] = posicionVillano
+            session["valorViento"] = valorViento
+            session["fuerza"] = fuerza
         else
           destino = DestinoMock.new true #1
-          if (viento == "1")
+          if (hviento == "1")
             viento = VientoMock.new true #+1
           else
             viento = VientoMock.new false #0
